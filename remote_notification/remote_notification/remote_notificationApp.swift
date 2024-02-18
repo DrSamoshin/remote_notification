@@ -22,8 +22,14 @@ struct remote_notificationApp: App {
 class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNotificationCenterDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        getNotificationSettings()
-        UNUserNotificationCenter.current().delegate = self
+        Task {
+            do {
+                try await NotificationProcessor.shared.processNotificationSettings()
+                await NotificationProcessor.shared.setDelegate(self)
+            } catch {
+                print(error)
+            }
+        }
         return true
     }
     
@@ -37,24 +43,8 @@ class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject, UNUserNoti
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void){
-        completionHandler([.alert, .badge, .sound])
-    }
-    
-    private func getNotificationSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { settings in
-            
-            switch settings.authorizationStatus {
-            case .denied:
-                DispatchQueue.main.async {
-                    UIApplication.shared.unregisterForRemoteNotifications()
-                }
-            case .authorized:
-                DispatchQueue.main.async {
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            default:
-                break
-            }
-        }
+        completionHandler(NotificationProcessor.shared.options)
     }
 }
+
+
