@@ -9,59 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
     var body: some View {
         VStack {
-            Button {
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { allowed, error in
-                    if allowed {
-                        // register for remote push notification
-                        DispatchQueue.main.async {
-                            UIApplication.shared.registerForRemoteNotifications()
-                        }
-                        print("Push notification allowed by user")
-                    } else {
-                        print("Error while requesting push notification permission. Error \(error)")
-                    }
-                }
-            } label: {
-                Text("Start notification")
-            }
+            Button("Register Notification", action: requestAuthorization)
         }
         .padding()
     }
-//    
-//    func registerNotification() {
-//        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
-//                print("Permission granted: \(granted) ")
-//                guard granted else { return }
-//                getNotificationsSettings()
-//            }
-//    }
-//    
-//    func getNotificationsSettings() {
-//        UNUserNotificationCenter.current().getNotificationSettings { settings in
-//            print("Notification settings: \(settings)")
-//            //1
-//            guard settings.authorizationStatus == .authorized else { return }
-//            //2
-//            DispatchQueue.main.async {
-//                UIApplication.shared.registerForRemoteNotifications()
-//            }
-//        }
-//    }
-}
-
-class AppDelegate: NSObject, UIApplicationDelegate {
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-            return true
+    private func requestAuthorization() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { allowed, error in
+            if allowed {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+                print("Push notification allowed by user")
+            } else {
+                if let url = URL(string: UIApplication.openNotificationSettingsURLString) {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.open(url)
+                    }
+                }
+                
+                print("Error while requesting push notification permission. Error \(error)")
+            }
         }
-
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let tokenString = deviceToken.reduce("", {$0 + String(format: "%02x", $1)})
-        print("Device push notification token - \(tokenString)")
     }
 }
 
