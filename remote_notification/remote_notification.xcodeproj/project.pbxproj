@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64A2675C2B8B242F0068A276 /* NotificationProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A2675B2B8B242F0068A276 /* NotificationProcessor.swift */; };
+		64A2675E2B8B24380068A276 /* NotificationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A2675D2B8B24380068A276 /* NotificationRequest.swift */; };
 		64EE6A442B82003D00E72B8D /* remote_notificationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EE6A432B82003D00E72B8D /* remote_notificationApp.swift */; };
 		64EE6A462B82003D00E72B8D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EE6A452B82003D00E72B8D /* ContentView.swift */; };
 		64EE6A482B82003F00E72B8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64EE6A472B82003F00E72B8D /* Assets.xcassets */; };
@@ -34,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		64A2675B2B8B242F0068A276 /* NotificationProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessor.swift; sourceTree = "<group>"; };
+		64A2675D2B8B24380068A276 /* NotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRequest.swift; sourceTree = "<group>"; };
 		64EE6A402B82003D00E72B8D /* remote_notification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = remote_notification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64EE6A432B82003D00E72B8D /* remote_notificationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remote_notificationApp.swift; sourceTree = "<group>"; };
 		64EE6A452B82003D00E72B8D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,7 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				64EE6A6D2B82009A00E72B8D /* remote_notification.entitlements */,
+				64A2675B2B8B242F0068A276 /* NotificationProcessor.swift */,
 				64EE6A432B82003D00E72B8D /* remote_notificationApp.swift */,
+				64A2675D2B8B24380068A276 /* NotificationRequest.swift */,
 				64EE6A452B82003D00E72B8D /* ContentView.swift */,
 				64EE6A472B82003F00E72B8D /* Assets.xcassets */,
 				64EE6A492B82003F00E72B8D /* Preview Content */,
@@ -259,7 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64A2675E2B8B24380068A276 /* NotificationRequest.swift in Sources */,
 				64EE6A462B82003D00E72B8D /* ContentView.swift in Sources */,
+				64A2675C2B8B242F0068A276 /* NotificationProcessor.swift in Sources */,
 				64EE6A442B82003D00E72B8D /* remote_notificationApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
