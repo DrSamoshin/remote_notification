@@ -38,6 +38,7 @@
 /* Begin PBXFileReference section */
 		64A2675B2B8B242F0068A276 /* NotificationProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessor.swift; sourceTree = "<group>"; };
 		64A2675D2B8B24380068A276 /* NotificationRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationRequest.swift; sourceTree = "<group>"; };
+		64A2675F2B8B29390068A276 /* remote-notification-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "remote-notification-Info.plist"; sourceTree = SOURCE_ROOT; };
 		64EE6A402B82003D00E72B8D /* remote_notification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = remote_notification.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64EE6A432B82003D00E72B8D /* remote_notificationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = remote_notificationApp.swift; sourceTree = "<group>"; };
 		64EE6A452B82003D00E72B8D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		64EE6A422B82003D00E72B8D /* remote_notification */ = {
 			isa = PBXGroup;
 			children = (
+				64A2675F2B8B29390068A276 /* remote-notification-Info.plist */,
 				64EE6A6D2B82009A00E72B8D /* remote_notification.entitlements */,
 				64A2675B2B8B242F0068A276 /* NotificationProcessor.swift */,
 				64EE6A432B82003D00E72B8D /* remote_notificationApp.swift */,
@@ -436,6 +438,8 @@
 				DEVELOPMENT_TEAM = AWDSZNV22L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "remote-notification-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -466,6 +470,8 @@
 				DEVELOPMENT_TEAM = AWDSZNV22L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "remote-notification-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
